@@ -31,6 +31,16 @@
     },
     "link": {
       "type": "string"
+    },
+    "contenido": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "articulo": {
+      "type": "boolean"
     }
   }
 }
