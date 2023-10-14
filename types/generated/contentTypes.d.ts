@@ -683,6 +683,7 @@ export interface ApiApoyoApoyo extends Schema.CollectionType {
     singularName: 'apoyo';
     pluralName: 'apoyos';
     displayName: 'Apoyo';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -691,6 +692,8 @@ export interface ApiApoyoApoyo extends Schema.CollectionType {
     nombreDeUsuario: Attribute.String;
     imagen: Attribute.Media;
     link: Attribute.String;
+    boricestamoscontigo_cl: Attribute.Boolean & Attribute.DefaultTo<false>;
+    todosencontra_cl: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -777,6 +780,42 @@ export interface ApiInicioInicio extends Schema.SingleType {
   };
 }
 
+export interface ApiRazonEnContraRazonEnContra extends Schema.CollectionType {
+  collectionName: 'razon_en_contras';
+  info: {
+    singularName: 'razon-en-contra';
+    pluralName: 'razon-en-contras';
+    displayName: 'RazonEnContra';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titulo: Attribute.String & Attribute.Required;
+    contenido: Attribute.Text & Attribute.Required;
+    imagen: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID<'api::razon-en-contra.razon-en-contra', 'titulo'> &
+      Attribute.Required;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::razon-en-contra.razon-en-contra',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::razon-en-contra.razon-en-contra',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -796,6 +835,7 @@ declare module '@strapi/types' {
       'api::apoyo.apoyo': ApiApoyoApoyo;
       'api::avance.avance': ApiAvanceAvance;
       'api::inicio.inicio': ApiInicioInicio;
+      'api::razon-en-contra.razon-en-contra': ApiRazonEnContraRazonEnContra;
     }
   }
 }

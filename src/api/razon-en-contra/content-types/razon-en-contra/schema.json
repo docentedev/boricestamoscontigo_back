@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "razon_en_contras",
+  "info": {
+    "singularName": "razon-en-contra",
+    "pluralName": "razon-en-contras",
+    "displayName": "RazonEnContra",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "contenido": {
+      "type": "text",
+      "required": true
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "regex": "^https:\\/\\/[^\\s/$.?#].[^\\s]*$",
+      "required": false
+    }
+  }
+}

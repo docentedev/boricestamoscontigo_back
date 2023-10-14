@@ -4,7 +4,8 @@
   "info": {
     "singularName": "apoyo",
     "pluralName": "apoyos",
-    "displayName": "Apoyo"
+    "displayName": "Apoyo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +16,26 @@
       "type": "string"
     },
     "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "link": {
       "type": "string"
+    },
+    "boricestamoscontigo_cl": {
+      "type": "boolean",
+      "default": false
+    },
+    "todosencontra_cl": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
